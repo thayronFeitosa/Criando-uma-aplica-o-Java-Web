@@ -8,6 +8,9 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+
+
+
 @Configuration
 public class DataConfiguration {
 
@@ -22,12 +25,12 @@ public class DataConfiguration {
     }
 	
 	@Bean
-	public JpaVendorAdapter jpaVendorAdapter(){
+	public JpaVendorAdapter jpaVendorAdapter() {
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
 		adapter.setDatabase(Database.MYSQL);
 		adapter.setShowSql(true);
 		adapter.setGenerateDdl(true);
-		adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
+		adapter.setDatabasePlatform("org.hibernate.dialect.MySQL5Dialect");
 		adapter.setPrepareConnection(true);
 		return adapter;
 	}
